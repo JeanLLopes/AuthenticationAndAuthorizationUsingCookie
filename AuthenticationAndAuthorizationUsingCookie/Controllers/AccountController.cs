@@ -58,7 +58,7 @@ namespace AuthenticationAndAuthorizationUsingCookie.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Logout()
         {
             var login = HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

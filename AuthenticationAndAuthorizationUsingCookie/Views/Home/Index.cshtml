@@ -2,17 +2,29 @@
     ViewData["Title"] = "Setting Page";
 }
 
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h2><strong>Setting Page </strong></h2><br /><br />
-            Hello @User.Identity.Name !, Role @User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value
-            <a asp-action="logout" asp-controller="account">
-                Logout
-            </a>
+            Hello @User.Identity.Name !, Roles:
+            <br />@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value
+            <br />@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Country)?.Value
+            <br />@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Email)?.Value
+            <br />@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Gender)?.Value
+            <br />@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.GivenName)?.Value
+            <br />@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.IsPersistent)?.Value
+            <br />@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value
+            <br />@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Surname)?.Value
+            <br />@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Version)?.Value
+            <br />@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Actor)?.Value
             <br />
+            <br />
+            <a asp-action="logout" asp-controller="Account">Logout</a>
             <br />
             <h4>Admin role user can only access this page!!</h4>
         </div>
     </div>
-</div>  
+</div>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers 
